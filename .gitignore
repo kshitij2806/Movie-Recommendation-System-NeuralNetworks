@@ -1,0 +1,26 @@
+# Virtual environment
+venv/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+.ipynb_checkpoints/
+
+# Data (auto-downloaded)
+data/
+
+# Keep trained model in repo (only 1.66 MB — needed for deployment)
+# models/*.pt
+
+# Logs
+*.log
+flask_debug.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/

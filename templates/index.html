@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CineMatch — AI Movie Recommendations</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="bg-gradient"></div>
+    <div class="particles" id="particles"></div>
+
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <span class="logo-icon">🎬</span>
+            <span class="logo-text">Cine<span class="accent">Match</span></span>
+        </div>
+        <p class="tagline">Search a movie &mdash; discover what to watch next</p>
+    </header>
+
+    <!-- Stats Bar -->
+    <div class="stats-bar">
+        <div class="stat-item">
+            <span class="stat-value" id="statUsers">—</span>
+            <span class="stat-label">Users</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-value" id="statMovies">—</span>
+            <span class="stat-label">Movies</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-value" id="statRatings">—</span>
+            <span class="stat-label">Ratings</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-value" id="statParams">—</span>
+            <span class="stat-label">RBM Params</span>
+        </div>
+    </div>
+
+    <!-- Main -->
+    <main>
+
+        <!-- Search Hero -->
+        <section class="search-section">
+            <h2>Find Similar Movies</h2>
+            <p class="search-subtitle">Type a movie title — our RBM neural network finds what matches your taste</p>
+
+            <div class="search-wrapper">
+                <div class="search-input-wrap">
+                    <span class="search-icon">🔍</span>
+                    <input
+                        type="text"
+                        id="searchInput"
+                        placeholder="e.g. Star Wars, Casablanca, The Matrix..."
+                        autocomplete="off"
+                        spellcheck="false"
+                    >
+                    <button class="clear-btn hidden" id="clearBtn" onclick="clearSearch()">✕</button>
+                </div>
+
+                <!-- Autocomplete dropdown -->
+                <div class="dropdown hidden" id="dropdown"></div>
+            </div>
+        </section>
+
+        <!-- Selected Movie + Similar Results -->
+        <section class="result-section hidden" id="resultSection">
+            <!-- Selected movie pill -->
+            <div class="selected-movie" id="selectedMovie"></div>
+
+            <h3 class="results-heading">
+                <span class="section-icon">🧠</span>
+                Movies Similar via RBM Embeddings
+            </h3>
+            <div class="movie-grid" id="similarGrid"></div>
+        </section>
+
+        <!-- Trending -->
+        <section class="popular-section">
+            <h3>
+                <span class="section-icon">🔥</span>
+                Trending Movies
+            </h3>
+            <div class="movie-grid" id="popularGrid">
+                <div class="skeleton"></div>
+                <div class="skeleton"></div>
+                <div class="skeleton"></div>
+                <div class="skeleton"></div>
+                <div class="skeleton"></div>
+                <div class="skeleton"></div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>Built with <span class="heart">&#9829;</span> using Restricted Boltzmann Machines &amp; PyTorch</p>
+        <p class="footer-sub">MovieLens 100K &bull; Collaborative Filtering &bull; Neural Network</p>
+    </footer>
+
+    <div class="toast hidden" id="toast"></div>
+
+    <script src="/static/js/app.js"></script>
+</body>
+</html>
