@@ -13,6 +13,12 @@ from src.recommend import get_engine
 
 app = Flask(__name__)
 
+# ── Eager startup: load model + data once at boot ──────────────
+# This prevents first-request timeouts on Railway / Render.
+print("[startup] Loading recommendation engine...")
+get_engine()
+print("[startup] Engine ready.")
+
 
 # ── Pages ──────────────────────────────────────────────────────
 
